@@ -1,0 +1,19 @@
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script>
+var socket = io("https://insight.bitpay.com");
+socket.send({
+  method: "getAddressHistory", 
+  params: [
+    ["1JAd7XCBzGudGpJQSDSfpmJhiygtLQWaGL"], 
+    {
+      from: 0,
+      to: 50,
+      queryMempool: true,
+      start: 429632,
+      end: 0
+    }
+  ]
+}, function (reply) {
+  console.log("Reply was ", reply);
+})
+</script>
